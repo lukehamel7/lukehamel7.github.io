@@ -1,35 +1,54 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | h3Dro</title>
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <script src="TemplateData/UnityProgress.js"></script>
-  </head>
-  <body class="template">
-    <p class="header"><span>Unity WebGL Player | </span>h3Dro</p>
-    <div class="template-wrap clear">
-      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
-      <br>
-      <div class="logo"></div>
-      <div class="fullscreen"><img src="TemplateData/fullscreen.png" width="38" height="38" alt="Fullscreen" title="Fullscreen" onclick="SetFullscreen(1);" /></div>
-      <div class="title">h3Dro</div>
-    </div>
-    <p class="footer">&laquo; created with <a href="http://unity3d.com/" title="Go to unity3d.com">Unity</a> &raquo;</p>
-    <script type='text/javascript'>
-  var Module = {
-    TOTAL_MEMORY: 268435456,
-    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
-    compatibilitycheck: null,
-    dataUrl: "Release/h3DroTrilogyBuild.data",
-    codeUrl: "Release/h3DroTrilogyBuild.js",
-    memUrl: "Release/h3DroTrilogyBuild.mem",
+<!DOCTYPE html>
+<html>
+<head>
+<title>testing stuff</title>
+<style>
+    body {
+        background: url("http://www.deertrail.us/minnesotawildlife/minnesotawildlifepictures/ViewersPictures/deertrailsponsors/deertrailpictures/deertrail/wildlifepictures/z/bg.jpg");
+        margin-left: 10px;
+    }
+.mainPart {
+    border:3px solid blue;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #86898e;
+    text-align: center;
+    padding: 8px;
+}
+p.bestFont {
+    font-family: "Trebuchet MS", Times, serif;
+}
+</style>
+</head>
+<body>
+<div class="mainPart">
+<h1>Test page</h1>
+<p class="bestFont">Here are some neat links and such. I'll probably keep adding to this as I go, if you have suggestions you should suggest them.</p>
+<h3>Deer Trail - A neat website with several cameras set up in the woods. Great for nature stuff, although most videos are restricted by default.</h3>
+<p class="bestFont"><a href=http://www.deertrail.us>Deer Trail</a></p>
+<h3>Zelda 30th Anniversary Tribute - An unfinished fangame that was taken down from the internet for copyright reasons. It's a voxel-based recreation of the original game.</h3> 
+<p class="bestFont"><a href=http://10.10.1.21:8025//zelda30tribute-master/www/>Zelda 30th Anniversary Tribute (Online)</a></p>
+<p class="bestFont"><a href=http://localhost:8025/zelda30tribute-master/www>Zelda 30th Anniversary Tribute (Host only)</a></p>
+    <h3>Asteroids - It's Asteroids, but on this site. Pretty simple stuff.</h3>
+    <p class="bestFont"><a href=http://10.10.1.21:8025//Asteroids-master>Asteroids (Online)</a></p>
+    <p class="bestFont"><a href=http://localhost:8025/Asteroids-master>Asteroids (Host only)</a></p>
+    <h3>Snake - A classic game of snake</h3>
+    <p class="bestFont"><a href=http://10.10.1.21:8025//html5-snake-master>Snake (Online)</a></p>
+    <p class="bestFont"><a href=http://localhost:8025/html5-snake-master>Snake (Host only)</a></p>
+    <h3>HexGL - A futuristic racing game. It's sort of like F-Zero, but without AIs. It runs surprisingly well in the browser.</h3>
+    <p class="bestFont"><a href=http://10.10.1.21:8025//HexGL-master>HexGL (Online)</a></p>
+    <p class="bestFont"><a href=http://localhost:8025/HexGL-master>HexGL (Host only)</a></p>
+    <h3>Hextris - Like tetris, but on a hexagon.</h3>
+    <p class="bestFont"><a href=http://10.10.1.21:8025//hextris-gh-pages>Hextris (Online)</a></p>
+    <p class="bestFont"><a href=http://localhost:8025/hextris-gh-pages>Hextris (Host only)</a></p>
+    <h3>Chat - Chat with other people! Like Google Hangouts, but... Oh, there really isn't much of an advantage.</h3>
+    <p class = "bestFont"><a href=http://10.10.1.21:8025/SlackerYou-master> Chat (Online)</a></p>
+    <p class = "bestFont"><a href=http://localhost:8025/SlackerYou-master>Chat (Host only)</a></p>
+    <h3>Orbic's Story Demo - A very early demo of an upcoming game. There's not too much to it so far, but it's coming along.</h3>
+    <p class="bestFont"><a href=http://10.10.1.21:8025/Orbic-master>Orbic's Story  Demo (Online)</a></p>
+    <p class="bestFont"><a href=http://localhost:8025/Orbic-master>Orbic's Story Demo (Host only)</a></p>
     
-  };
-</script>
-<script src="Release/UnityLoader.js"></script>
-
-  </body>
+</div>
+</body>
 </html>
