@@ -1,32 +1,74 @@
 <html>
 <head>
-  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-  <link rel="stylesheet" href="http://hackeryou.com/wp-content/themes/hackeryou/style.css">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+        background: url("http://www.deertrail.us/minnesotawildlife/minnesotawildlifepictures/ViewersPictures/deertrailsponsors/deertrailpictures/deertrail/wildlifepictures/z/bg.jpg");
+        margin-left: 10px;
+    }
+.mainPart {
+    border:3px solid blue;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    background-color: #86898e;
+    text-align: center;
+    padding: 8px;
+}
+p.bestFont {
+    font-family: "Trebuchet MS", Times, serif;
+}
+</style>
+ <script type="text/javascript" src="http://irc.unitedchat.net/flash/swfobject.js"></script>
+<center><div id="flashcontent">
+This chat application requires <a href="http://www.adobe.com/go/getflash/">Flash Player.</a>
+</div></center>
+<script type="text/javascript">
+	var so = new SWFObject("http://irc.unitedchat.net/flash/VLoader.swf", "ChatNow", "780", "500", "7", "#FFFFFF");
+	so.addParam("base", "http://irc.unitedchat.net/flash/");
+	so.addVariable("versionsurl", "chatnow-versions.xml");
+	so.addVariable("initswf", "/flash/ChatNow.swf");
+	so.addVariable("themedirectory", "themes/");
+	so.addVariable("themename", "Theme-Wii.swf");
+	so.addVariable("port", "7000");
+	so.addVariable("room", "Cubic Lounge");
+	so.addVariable("user", "FlashUser");
+	so.addVariable("fullname", "Flash User");
+	so.addVariable("connect", "false");
+	so.addVariable("allowusercommands", "false");
+	so.addVariable("showsystemmessages", "false");
+	so.addVariable("showjoinmessages", "true");
+	so.addVariable("showpartmessages", "false");
+	so.addVariable("showradio", "false");
+	so.write("flashcontent");
+</script>
+<script type="text/javascript" src="http://irc.unitedchat.net/flash/swfobject.js"></script>
+<center><div id="flashcontent">
+This chat application requires <a href="http://www.adobe.com/go/getflash/">Flash Player.</a>
+</div></center>
+<script type="text/javascript">
+	var so = new SWFObject("http://irc.unitedchat.net/flash/VLoader.swf", "ChatNow", "780", "500", "7", "#FFFFFF");
+	so.addParam("base", "http://irc.unitedchat.net/flash/");
+	so.addVariable("versionsurl", "chatnow-versions.xml");
+	so.addVariable("initswf", "/flash/ChatNow.swf");
+	so.addVariable("themedirectory", "themes/");
+	so.addVariable("themename", "Theme-Wii.swf");
+	so.addVariable("port", "7000");
+	so.addVariable("room", "Cubic Lounge");
+	so.addVariable("user", "FlashUser");
+	so.addVariable("fullname", "Flash User");
+	so.addVariable("connect", "true");
+	so.addVariable("allowusercommands", "false");
+	so.addVariable("showsystemmessages", "false");
+	so.addVariable("showjoinmessages", "true");
+	so.addVariable("showpartmessages", "false");
+	so.addVariable("showradio", "false");
+	so.write("flashcontent");
+</script>
+  
   <meta charset="UTF-8">
 </head>
 <body>
+  <div class="mainPart"></div>
 
-<div class="wrapper">
-  <h1>Chat</h1>
-  <p class="desc">Or is it...?</p>
-
-
-  <div class="messagesWrap">
-    <ul class="messages"></ul>
-  </div>
-
-  <form action="" class="chat">
-    <input type='text' id='nameInput' placeholder='Username' required maxlength=10> 
-    <input type='text' id='messageInput'  placeholder='Type a message...' required maxlength=140>
-    <input type="submit" value="Send →">
-    <small>Stolen with just a little bit of shame - code at <a href="https://github.com/HackerYou/SlackerYou">github.com/HackerYou/SlackerYou</a>. Be nice when testing.</small>
-  </form>
-
-
-</div>
-  
-  <script src="scripts.js"></script>
 </body>
 </html>
