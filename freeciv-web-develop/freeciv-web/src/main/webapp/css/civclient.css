@@ -1,0 +1,929 @@
+body
+{
+  margin: 0px;
+  background: #000000;
+  overflow: hidden;
+  width: 100%;
+}
+
+button { 
+  margin: .2em .2em .2em 0; 
+  cursor: pointer; 
+  padding: .2em .6em .3em .6em; 
+  line-height: 1.4em; 
+  width:auto; 
+  overflow:visible; 
+}
+
+.ui-tabs .ui-tabs-panel {
+  border-width:0;
+  display:block;
+  padding:0px;
+}
+
+#freeciv_logo {
+  float:left; 
+  background: #444444 url(/images/freeciv-web-logo.png);
+  width: 138px; 
+  height: 35px; 
+  margin-right: 10px;
+}
+
+#game_logo {
+  width: 100%;
+  height: 50px;
+  background-color: #aaaaff;
+}
+
+
+#game_message_area {
+  height: 143px;
+  width: 98%;
+  overflow: auto;
+  border: 1px solid #111111;
+  color: white;
+}
+
+@media (max-width: 640px) {
+  #game_message_area {
+    height: 100px;
+  }
+}
+
+#game_chat_box {
+  width: 100%;
+  height: 18px;
+}
+
+#game_text_input {
+  width: 93%;
+  border: 1px solid #555555;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+#game_overview_map {
+  float: left;
+  height: 150px;
+  text-align: center;
+}
+
+
+#overview_map {
+  cursor:crosshair;
+  border: 1px solid #555555;
+  height: 140px;
+}
+
+#game_unit_info {
+  float: left;
+  width: 100%;
+  overflow: hidden;
+}
+
+#unit_text_details {
+  float:left;
+  width: 135px;
+
+}
+
+#end_game_turn_panel {
+  float: right;
+  width: 120px;
+}
+
+
+
+.order_button {
+  overflow: hidden;
+  padding-right: 12px;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+#turn_done_button_div {
+  position: absolute;
+  padding: 5px;
+  right: 0;
+  top: 0;
+}
+
+#turn_done_button {
+  float: left;
+}
+
+.main_menu_buttons {
+  padding:10px
+}
+
+#city_canvas_div {
+  width: 350px; 
+  height: 175px; 
+  margin: 5px;
+  border: 1px solid #888888;
+  float: left;
+}
+
+#city_dialog_info {
+  float: left;
+  padding: 10px;
+
+}
+
+#city_button_pane {
+  margin: 20px;
+  float: left;
+}
+
+
+.city_panel {
+  background: url("/images/bg.jpg") repeat scroll 0 0 #222222;
+  float: left; 
+  padding-right: 30px;
+}
+
+#city_improvements_panel {
+  clear: left;
+  width: 95%;
+}
+
+#city_right_panel {
+  float: right; 
+  width: 55%;
+  background: url("/images/bg.jpg") repeat scroll 0 0 #222222;
+  height: 533px;
+}
+
+
+#freeciv_manual {  
+  color: #ffffff;
+  padding: 10px;
+  
+}
+
+.manual-tab {
+  background: #2e2f35;
+  padding: 30px;
+  overflow: auto;
+}
+
+.helptext {
+  white-space: pre-wrap;
+  font-size: 85%;
+}
+
+#manual_non_helptext_facts {
+  -moz-column-width: 20em;
+  -webkit-column-width: 20em;
+  column-width: 20em;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-count: 2;
+}
+
+#game_unit_orders_default {
+  bottom: 55px;
+  min-width: 300px;
+  height: 40px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+#city_viewport {
+  overflow: auto;
+}
+
+#diplomacy_messages {
+  background: url("/images/bg-dark.jpg") repeat scroll 0 0 ; 
+  min-height: 120px;
+  max-height: 200px;
+  overflow: auto;
+  border-color: 1px solid;
+  border: 1px solid #555555
+  width: 100%;
+  font-size: 130%;
+}
+
+#diplomacy_messages a {
+  color: white;
+}
+
+#diplomacy_dialog {
+  overflow: hidden;
+}
+
+#diplomacy_player_box_self {
+  width: 50%;
+  float: left;
+  text-align:center;
+}
+
+#diplomacy_player_box_counterpart {
+  width: 50%;
+  float: left;
+  text-align:center;
+}
+
+.ui-dialog {
+  border: 1px #444444 solid;
+}
+
+#self_dipl_div {
+  float: left;
+  padding-left: 60px;
+  text-align: left;
+  z-index: 2000;
+}
+
+#counterpart_dipl_div {
+  float: left;
+  padding-left: 60px;
+  text-align: left;
+  z-index: 2000;
+}
+
+#dialog {
+  max-height: 400px;
+}
+
+/* Research dialog. */
+
+#technologies {
+  clear: left;
+  position: relative; 
+  overflow: auto; 
+  width: 100%;
+  background-image: url('/images/bg.jpg');
+}
+
+#tech_info_box {
+  float: left; 
+  border: 1px solid rgb(153, 153, 153); 
+  min-width: 1000px; 
+  min-height: 40px; 
+  padding: 4px; 
+  margin: 2px; 
+  margin-left: 0px; 
+  background: url("/images/bg-dark.jpg") repeat scroll 0 0 ; 
+  color: white;
+}
+
+#tech_goal_box {
+  float: left;
+  font-weight: bold;
+}
+
+#tech_progress_box {
+  float: left; 
+  padding-left: 80px; 
+  width: 280px;
+}
+
+#progress_bg {
+  float: left;
+  background-color: #bbbbbb; 
+  width: 100%;
+  border: 1px solid #ffffff;
+}
+
+#progress_fg {
+  float: left; 
+  width: 60%; 
+  background-color: #5582c2;
+}
+
+
+#tech_results {
+  float: left; 
+  padding-left: 20px;
+}
+
+
+#nations {
+  overflow: auto;
+}
+
+#city_name_req {
+  width: 100%;
+}
+
+#civ_dialog {
+  padding: 20px;
+  margin: 20px;
+  height: 550px;
+  text-align: center;
+}
+
+/* Overrides to jquery-ui-1.8.9.custom.css */ 
+
+.ui-widget-overlay {
+  background: none repeat scroll 0 0 #000000;
+  opacity: 0.65;
+}
+
+.ui-widget-content {
+  background: url("/images/bg.jpg") repeat scroll 50% 50%;
+
+}
+
+
+#game_status_panel {
+  position: absolute;
+  color: #ffffff;
+  height: 23px;
+  text-align: center;
+  bottom: 35px;
+  overflow: hidden;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.ui-dialog .ui-dialog-content {
+  position: static;
+}
+
+#counterpart_dipl_add {
+  z-index: 100;
+}
+
+#self_dipl_add {
+  z-index: 100;
+}
+
+
+#city_change_production {
+  height: 100%; 
+  width: 100%; 
+  background-color: #090909; 
+  border: 1px solid #444444;
+  
+}
+
+#city_present_units, #city_supported_units {
+  float: left;
+  height: 90px; 
+  overflow: auto; 
+  background:  url("/images/bg-dark.jpg") repeat scroll 0 0 ; 
+  border: 1px solid #444444;
+  padding: 6px;
+  margin: 5px;
+  min-width: 300px;
+}
+
+#city_improvements {
+  float: left;
+  height: 90px; 
+  overflow: auto; 
+  background: url("/images/bg-dark.jpg") repeat scroll 0 0 ; 
+  border: 1px solid #444444;
+  padding: 6px;
+  margin: 5px;
+  min-width: 200px;
+
+}
+
+#city_improvements_title, #city_present_units_title, #city_supported_units_title {
+  font-size: 90%;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  padding: 4px;
+  margin: -7px -6px 7px -6px;
+}
+
+#city_improvement_element {
+  text-align: center; 
+  color: #ffffff; 
+  width: 70px; 
+  cursor:pointer; 
+  cursor:hand;
+  float: left;
+}
+
+
+.production_list_item {
+  float: left;
+  text-align: center; 
+  width: 80px;
+  height: 90px;
+  font-size: 70%;
+}
+
+.production_list_item_sub {
+  cursor:pointer;
+  cursor:hand;
+  float:left; 
+}
+
+#unit_info_div {
+  float:left; 
+}
+
+#unit_info_image {
+  cursor:pointer; 
+  float: left; 
+  margin-right: 5px;  
+}
+
+#city_production_overview {
+  padding-top: 10px;
+}
+
+/* This is for popup menu support */
+.hidden { position:absolute; top:0; left:-9999px; width:1px; height:1px; overflow:hidden; }
+	
+.fg-button { font-size: 14px; clear:left; margin:0 4px 40px 20px; padding: .4em 1em; text-decoration:none !important; cursor:pointer; position: relative; text-align: center; zoom: 1; }
+.fg-button .ui-icon { position: absolute; top: 50%; margin-top: -8px; left: 50%; margin-left: -8px; }
+.fg-menu-container {font-size: 14px;}
+a.fg-button { float:left;  }
+button.fg-button {  width:auto; overflow:visible; } /* removes extra button width in IE */
+	
+.fg-button-icon-left { padding-left: 2.1em; }
+.fg-button-icon-right { padding-right: 2.1em; }
+.fg-button-icon-left .ui-icon { right: auto; left: .2em; margin-left: 0; }
+.fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
+.fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }	 /* solo icon buttons must have block properties for the text-indent to work */	
+
+
+.ui-dialog .ui-dialog-title {
+  float: none;
+}
+
+#tabs_menu {
+  font-size: 0.9em;
+  overflow: hidden;
+}
+
+.chatbox_dialog {
+  background: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0, 0.6);
+}
+
+#ui-dialog-title-game_chatbox_panel {
+  margin-top: -5px;
+  font-size: 10px;
+}
+
+.chatbox_dialog div.ui-dialog-content {
+  padding: 5px 0;
+}
+
+.nation_button {
+  font-size: 11px;
+}
+
+.specialist_item {
+  float: left;
+}
+
+.blockUI h1 {
+  font-size: 18px;
+}
+
+.tablesorter-dark {
+  font: 100% sans-serif; 
+  background: url("/images/bg-dark.jpg") repeat scroll 0 0 ; 
+  color: white;
+}
+
+.tablesorter-dark thead td {
+  font: 100% sans-serif; 
+}
+
+#city_stats tr {
+  line-height: 14px;
+}
+
+#self_gold {
+  height: 15px;
+  font-size: 14px;
+  width: 40px;
+}
+
+#counterpart_gold {
+  height: 15px;
+  font-size: 14px;
+  width: 40px;
+}
+
+.diplomacy_gold {
+  padding: 8px;
+  font-size: 80%;
+}
+
+.govbutton {
+  width: 190px;
+}
+
+.setting_button {
+  width: 210px;
+}
+
+#nation_table {
+  cursor: pointer;    
+}
+
+#nations_button_div {
+  padding-bottom: 15px;
+}
+
+.act_sel_dialog {
+  min-width: 280px;
+}
+
+.act_sel_dialog .ui-dialog-content {
+  text-align: center;
+  min-width: 250px;
+}
+
+.act_sel_dialog .ui-dialog-buttonpane {
+  text-align: center;
+}
+
+.act_sel_button {
+  width: 250px;
+  margin-bottom: auto !important;
+  margin-top: auto !important;
+}
+
+.ui-selected {
+  background-color: #eeeeee;
+  color: black;
+}
+
+.ui-selecting {
+  background-color: #bbbbbb;
+  color: black;
+}
+.tablesorter-dark td {
+	background-color: inherit;
+	color: inherit;
+}
+
+.tablesorter-dark tbody > tr:hover > td,
+.tablesorter-dark tbody > tr.even:hover > td,
+.tablesorter-dark tbody > tr.odd:hover > td {
+	background: inherit;
+}
+
+.nation_row_self {
+  color: white;
+}
+
+.nation_row_war {
+  color: red;
+}
+
+.nation_row_dead {
+  color: #222222;
+}
+
+#city_disband_options {
+  padding: 20px;
+}
+
+#tech_advance_helptext span {
+  text-decoration:underline;
+  cursor: pointer;
+}
+
+#tech_gained_choice {
+  float: left;
+  padding: 5px;
+}
+
+.specific_tech {
+  float: left;
+  background-color: rgba(2,2,2,0.6);
+  color: white;
+  border: 1px solid white;
+  padding: 3px;
+  margin: 4px;
+  cursor: pointer;
+
+}
+
+.tech_infobox_image {
+  float: left;
+  margin: 4px;
+}
+
+#wiki_image {
+  max-width: 600px; 
+  max-height: 500px; 
+  margin: 5px;
+  float: right;
+}
+
+#help_menu {
+  float: left;
+  background-image: url('/images/bg.jpg');
+  color: black;
+
+}
+
+#help_info_page {
+  float: left;
+  padding-left: 25px;
+}
+
+.help_submenu {
+  max-height:  600px;
+  overflow: auto;
+  min-width: 320px;
+  background-image: url('/images/bg.jpg');
+  color: black;
+}
+
+#tabs-hel.manual_doc {
+  background-image: url('/images/bg.jpg');
+  color: black;
+
+}
+
+#tabs-hel.manual_doc a {
+  color: darkgreen;
+}
+
+#tabs-hel.ui-icon, #tabs-hel.ui-widget-content .ui-icon {
+  background-image: url("images/ui-icons_222222_256x240.png");
+}
+
+#game_chatbox_panel {
+  overflow: hidden;
+}
+
+#city_current_worklist {
+  width: 100%;
+  float: left;
+  overflow: auto;
+  background-color: rgba(40,40,40,0.4);
+  border: 1px solid black;
+}
+
+#worklist_production_choices {
+  width: 100%;
+  float: left;
+  overflow: auto;
+  background-color: rgba(40,40,40,0.4);
+  border: 1px solid black;
+}
+
+#worklist_heading {
+  width: 100%
+  float: left;
+}
+
+#tasks_heading {
+  width: 100%;
+  float: left;
+}
+
+#worklist_left {
+  float: left;
+  width: 45%
+}
+
+#worklist_right {
+  float: right;
+  width: 50%;
+}
+
+.prod_choice_list_item {
+  text-align: left; 
+  font-size: 100%;
+  cursor:pointer;
+  cursor:hand;
+}
+
+.worklist_table {
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: separate;
+}
+
+#worklist_dialog_headline {
+  width: 100%;
+  height: 48px;
+  font-size: 120%;
+  padding-bottom: 5px;
+  background-color: rgba(40,40,40,0.2);
+}
+
+.worklist_table .ui-selected {
+  background-color: white;
+}
+
+.ui-widget-header {
+  background: #cb842e url("/images/ui-widget-header.png") 50% 50% repeat-x;
+}
+
+.ui-dialog .ui-dialog-title {
+  font-size: 140%;
+}
+
+.overview_dialog .ui-dialog-titlebar, .unit_dialog .ui-dialog-titlebar {
+  padding-bottom: 0px;
+  padding-left: 5px;
+  padding-top: 0px;
+  font-size: 11px;
+  margin-top: -5px;
+  height: 15px;
+}
+
+.chatbox_dialog .ui-dialog-titlebar {
+  padding-bottom: 0px;
+  padding-left: 5px;
+  padding-top: 0px;
+  margin-top: -4px;
+  height: 8px;
+}
+
+.chatbox_dialog .ui-dialog-titlebar {
+  background: #cb842e url("/images/ui-widget-header.png") 100% 50% repeat-x;
+}
+
+.ui-widget-content a {
+  color: #f8ff8a;
+}
+
+.govt_button {
+  width: 60%;
+  margin: 6px;
+}
+
+#governments {
+  text-align: center;
+}
+
+.fg-menu a {
+  color: black;
+}
+
+.Democracy {
+  background-image: url(/images/gov.democracy.png) !important; 
+}
+
+.Anarchy {
+  background-image: url(/images/gov.anarchy.png) !important; 
+}
+
+.Republic {
+  background-image: url(/images/gov.republic.png) !important; 
+}
+
+.Despotism {
+  background-image: url(/images/gov.despotism.png) !important; 
+}
+
+.Communism {
+  background-image: url(/images/gov.communism.png) !important; 
+}
+
+.Monarchy {
+  background-image: url(/images/gov.monarchy.png) !important; 
+}
+
+#flag_self {
+  float: left;
+  width: 140px;
+}
+
+#flag_counterpart {
+  float: right;
+  width: 140px;
+
+}
+
+#tabs_menu {
+  background: #444 url("images/ui-bg_highlight-soft_44_444444_1x100.png") 50% 50% repeat-x;
+}
+
+.context-menu-list {
+  background: none;
+}
+
+.context-menu-item {
+  font-size: 125%;
+  background-color: rgba(200,200,200,0.75);
+}
+
+@media (max-width: 900px) {
+  .context-menu-item {
+    font-size: 150%;
+    background-color: rgba(200,200,200,0.75);
+  }
+}
+
+.chatbox_text_tileinfo {
+  cursor:pointer;
+  cursor:hand;
+}
+
+// city tabs will be on the bottom of the dialog.
+#city_tabs { 
+    position: relative; 
+    padding-bottom: 3em; 
+} 
+#city_tabs .ui-tabs-nav { 
+    position: absolute; 
+    left: 0.25em; 
+    right: 0.25em; 
+    bottom: 0.25em; 
+    padding: 0em 0.2em 0.2em; 
+} 
+#city_tabs .ui-tabs-nav li { 
+    border-top: none; 
+    border-bottom: 1px solid #ccc; 
+    -moz-border-radius: 0px 0px 4px 4px; 
+    -webkit-border-radius: 0px 0px 4px 4px; 
+    border-radius: 0px 0px 4px 4px; 
+} 
+#city_tabs .ui-tabs-nav li.ui-tabs-selected, 
+#city_tabs .ui-tabs-nav li.ui-state-active { 
+    top: -1px; 
+}
+
+
+#prod_buttons {
+  float: right;
+}
+
+.ui-tooltip {
+    white-space: pre-line;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none 
+}
+
+.nation_flags {
+  width: 45px;
+}
+
+
+#prod_descr {
+  padding: 10px;
+  margin-left: 55px;
+}
+
+
+.scorechart {
+  height:  530px;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+
+}
+
+#scores_dialog {
+  overflow: hidden;
+}
+
+.current_focus_unit {
+  border: 2px solid white;
+  background-color: rgba(240,240,240,0.5);
+ 
+}
+
+#active_unit_info {
+  float: left;
+  width: 100%;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+  font-size: 86%;
+}
+
+#active_unit_info span {
+  font-size: 75%;
+}
+
+#game_unit_panel {
+  margin-left: -8px;
+}
+
+#city_table {
+  width: 100%;
+}
+
+#cities_row {
+  cursor:pointer; 
+  cursor:hand;
+}
+
+#wiki_dialog {
+  overflow: auto;
+}
+
+#cities_scroll {
+  width: 100%;
+  overflow: auto;
+}
+
+#game_overview_panel {
+  padding: 2px;
+  margin-bottom: -5px;
+}

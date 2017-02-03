@@ -1,0 +1,170 @@
+TODO:
+-----
+
+Current TODO-list in prioritized order here:
+
+- Bugs are often reported to Freeciv-web on Github here: https://github.com/freeciv/freeciv-web/issues - any fixes to these bugs is very welcome. Some of the bugs are also well suited for new developers interested in contributing to Freeciv-web.
+
+- On the City detail page, the citizen icons are too small to see what they mean, there also appears to be a black line around each block which appears unnecessary.
+- Three back-to-back (i.e same turn) successful spy/diplomat sabotages on the same city should not destroy production on the same item if the previous spy just destroyed the production.
+- There is no "Unload" hotkey for ships containing units to be unloaded. You have to click on the ship, then select each unit one by one, and it the ship has finished it's moves, the map recenters to the capital and then I have to go back and find the ship and repeat the process.
+- There doesn't appear to be a way to rearrange the items in the worklist. If I have a long worklist, I have to remove everything if I want to insert something, then re-add everything back in.
+  - see also point in "Unimplemented Freeciv client features"
+- Upgrade doesn't provide me an option if I want to upgrade given the cost of the upgrade before it happens.
+
+Various:
+- Let the player find another player's (known) capital without having to middle click every visible city he owns. Could be based on solution to Freeciv bug #23790
+- The trade route tab of the city tab should show if there is room for more trade routes
+- Make it possible to upload a save game without having to start a new game first when no other save games are stored in the browser
+
+Basically you can help improve Freeciv-web in any way you like, as long at it actually makes the game better! Other things to improve there:
+
+Major:
+- Update Freeciv-web to work with latest Freeciv.org SVN trunk version.
+- Integrate Freeciv-web into Freeciv.org codebase as much as possible.
+- Merge all dialogs to use Handlebars templates. See city dialog for a starting example. http://handlebarsjs.com/
+- Remove need for patches in /freeciv/patches directory.
+- Remove freeciv-proxy, integrate a WebSocket server into the freeciv C server. Integrate http://libwebsockets.org into the Freeciv C server. This will be useful! 
+- Add better goto handling with display of the number of turns required for goto
+
+Medium:
+- Playback of games.
+- Show what city is a unit's homecity. 
+- Statue of liberty doesn't allow all governments.
+- Better interface to load units into boats and transports.
+- Planes goto get blocked by ground units.
+- Show number of turns a diplomatic agreement will last.
+- diplomats inside cities can't see units there.
+- Sometimes other countries won't "meet" even if you're in contact and are on good terms.
+- Cannot disband unit in city to gain half production back. However, disbanding on the map still seems to give you that bonus. It's just not clear/available in the city dialog. 
+
+
+Minor/Other:
+- Separate chat box from other messages.
+
+User Interface:
+- Does the Go To And Do X user interaction style fit Freeciv-web's UI design?
+  - The goto system handles "must have moves left to perform this action" rules
+    - Could perhaps avoid some user confusion? See https://youtu.be/tNYqzg2HwRE?t=5m46s
+  - Allows the user to specify the order before the unit moves into harms way
+  - Example: Freeciv-web's Detonate Nuke At menu item and unit order button
+  - Example: The Qt client's auto generated go to and... sub menu
+  - Where should it live?
+    - In a Go To And... sub menu of the unit context menu?
+    - Should unit order buttons change? How?
+  - How to handle stuff that may have changed its legality when the unit reaches its target?
+    - Example: Join the city that will be built at the target tile next turn.
+    - Example: Build a city at the tile where the enemy will build a city next turn.
+    - The Qt client currently shows everything a unit type can do in case it will become legal.
+      - Automatically finding all actions a unit may become able to perform in the future is non trivial in Freeciv-web
+- How should known illegal actions be handled?
+  - An action is known illegal when:
+    - the unit can perform it
+    - the unit can't perform it right now
+    - the player has enough information to known this
+  - A known illegal action can be shown and sent to the server
+    - The server often tries to explain why the failed action was illegal. The explanation helps the player to discover the rules.
+    - Offering to perform it can annoy and confuse the player. See https://youtu.be/tNYqzg2HwRE?t=6m31s
+  - A known illegal action can be hidden
+    - This could lead the player to assume that the unit can't perform the action at all
+  - A known illegal action can be "grayed out"
+    - the player sees that the unit can do the action but not right now
+    - many "grayed out" actions cluttering the view can be messy and confusing
+  - How much effort should be spent on discovering known illegal actions?
+    - Is requesting a list of legal actions from the server on each menu update too expensive?
+  - Current situation:
+    - the action selection dialog doesn't show known illegal actions
+    - some menu items show and allows the player to order known illegal actions
+    - Automatically finding all actions a unit may become able to perform in the future is non trivial in Freeciv-web
+    - PACKET_UNIT_GET_ACTIONS has the disturb_player field for background queries
+
+Unimplemented Freeciv client features:
+- action selection dialog pops up and down based on unit focus rather than
+  opening all at once.
+  - the Freeciv C clients give units that wants an action decision higher
+    priority in the unit focus queue. This keeps player decisions fast.
+  - makes turn change less confusing when many units on a goto reaches their
+    targets.
+  - gives the user freedom to delay a response without losing the reminder.
+  - open action selection dialogs are stored in save games.
+  - action selection dialogs are based on more up to date information.
+    (Since it asks right before showing the dialog)
+  - Implementation hints:
+    - a unit's request for the player to chose an action is stored in its
+      fields action_decision_want and action_decision_tile.
+    - action_decision_want tells if an action decision is wanted and if it
+      was caused by the unit being moved inside a transport
+      (ACT_DEC_PASSIVE) or by the unit itself moving (ACT_DEC_ACTIVE). It is
+      defined and explained in fc_types.js
+    - action_decision_tile is the tile the unit wonders what to do to.
+    - a unit's request for the player to chose an action can be set by the
+      server based on unit movement or by the client via
+      PACKET_UNIT_SSCS_SET(unit_id, type, value) where type is USSDT_QUEUE
+      like key_unit_action_select() does.
+    - once the player has made a decision (deciding not to act by pressing
+      cancel is a decision too) the client must ask the server to clear the
+      unit's action_decision_want by sending a USSDT_UNQUEUE typed
+      PACKET_UNIT_SSCS_SET(unit_id, type, value).
+    - the action selection dialog lives in action_dialog.js. It has recently
+      become less repetitive. This should make it easier to send
+      PACKET_UNIT_SSCS_SET with USSDT_UNQUEUE on all user choices.
+    - when a client sends a PACKET_UNIT_GET_ACTIONS(actor_unit_id,
+      target_unit_id, target_city_id, target_tile_id, disturb_player) the
+      server will respond with the information needed for the action
+      selection dialog in a PACKET_UNIT_ACTIONS.
+    - the current situation is that the Freeciv-web client sends a
+      PACKET_UNIT_GET_ACTIONS as soon as a unit's action decision state
+      changes and the new state wants a decision. (See
+      unit_actor_wants_input() and process_diplomat_arrival()) Multiple
+      action selection dialogs will hide behind each other.
+    - the current situation is that the Freeciv-web client clears the action
+      decision as soon as an action selection dialog is received. (See
+      handle_unit_actions())
+    - in Freeciv C clients a PACKET_UNIT_GET_ACTIONS is sent when a unit
+      gets focus OR when a unit already in focus changes action decision
+      state to one that wants a decision.
+    - Freeciv's common/networking/packets.def has up to date packet field
+      info.
+- the popup_attack_actions client setting (so attack pop up can be avoided)
+- global work lists
+- advanced unit selection
+- rearranging items in the city production worklist
+  - see also item near the top
+  - Needs UI work. Maybe allow rearranging items by drag and drop?
+  - Implementation hints:
+    - A worklist is an array of universals.
+    - A universal has two fields: kind and value.
+    - Sending the packet PACKET_CITY_WORKLIST(city_id, worklist) to the
+      server replaces the city's current worklist with the sent worklist.
+    - A client can therefore take a city's worklist and rearrange the order
+      of its items (or perform other changes to it) before sending back.
+- the cities tab
+- the auto generated part of the help texts
+  - the code is big (it also refers to other Freeciv C code)
+  - "just rewrite the code in JavaScript"
+    - would be much work
+    - keeping it updated as the corresponding code changes in Freeciv would be a nightmare
+    - high probability of it ending up telling lies
+  - parts of the freeciv-manual output is now marked. This makes it more
+    machine readable.
+    - have freeciv-manual output more auto generated help texts in a form
+      Freeciv-web can use.
+- between turns timer count down
+
+Unimplemented rule variation support:
+- The topology server setting
+  The Freeciv-web client can only display the TF_WRAPX and the non wrapping
+  topology. Isometric, hex and WRAP_Y maps are unsupported.
+  Testing: to test new topology support the Freeciv server must be changed.
+  Open server/settings.c. Find topology_callback(). Remove the blocking of
+  the toplogy you are working to support.
+- The ID of certain extras are hard coded.
+- The graphic tags of certain extras are hard coded.
+- Wikipedia help is only extracted for items that appear in the classic
+  ruleset.
+
+Simplify Freeciv server upgrade:
+- get rid of the worst merge conflict causes
+  - freeciv_web_all_packets_def_changes:
+    - find and get rid of pointless changes
+    - make more changes pointless by improving Freeciv's JSON support
