@@ -1,0 +1,13 @@
+{
+"companyName": "Game Jam Team 2",
+"productName": "Fight and Flight",
+"dataUrl": "Fight and Flight.data.unityweb",
+"asmCodeUrl": "Fight and Flight.asm.code.unityweb",
+"asmMemoryUrl": "Fight and Flight.asm.memory.unityweb",
+"asmFrameworkUrl": "Fight and Flight.asm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#202020"
+}
